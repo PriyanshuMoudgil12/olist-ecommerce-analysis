@@ -1,0 +1,5 @@
+data/
+olist.db
+*.db
+.DS_Store
+__pycache__/

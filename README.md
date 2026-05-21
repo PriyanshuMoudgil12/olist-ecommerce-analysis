@@ -6,6 +6,14 @@ Analysed **99,441 real orders** across Brazil's largest e-commerce marketplace t
 
 ---
 
+## 📊 Live Dashboard
+
+🔗 **[View Interactive Tableau Dashboard](https://public.tableau.com/app/profile/priyanshu.moudgil/viz/OlistE-CommerceSalesAnalysis_17793927587150/Dashboard1)**
+
+![Dashboard Preview](outputs/monthly_revenue_trend.png)
+
+---
+
 ## 🎯 Business Problem
 
 Olist connects thousands of small Brazilian merchants to major marketplaces. With 8× revenue growth in under 2 years comes serious operational complexity. This analysis answers 5 questions a BA would face on day one:
@@ -15,28 +23,6 @@ Olist connects thousands of small Brazilian merchants to major marketplaces. Wit
 3. Which states are high-value markets vs untapped opportunities?
 4. How reliable is delivery — and does it affect customer satisfaction?
 5. Which payment methods do customers prefer, and does it vary by order size?
-
----
-
-## 📊 Dashboard & Charts
-
-### Monthly Revenue Trend
-![Monthly Revenue](outputs/monthly_revenue_trend.png)
-
-### Top Product Categories
-![Top Categories](outputs/top_categories.png)
-
-### Geographic Analysis
-![State Revenue](outputs/state_revenue.png)
-
-### Delivery Performance
-![Delivery Analysis](outputs/delivery_analysis.png)
-
-### Customer Review Analysis
-![Review Correlation](outputs/review_correlation.png)
-
-### Payment Methods
-![Payment Methods](outputs/payment_methods.png)
 
 ---
 
@@ -79,9 +65,23 @@ Credit card gets all the attention at 75.3% of orders — but boleto users avera
 | Tool | What I Used It For |
 |------|--------------------|
 | **SQL (SQLite)** | 6 business queries across 9 joined tables — revenue trends, geographic breakdown, delivery performance, category analysis, review correlation, payment behaviour |
-| **Python (pandas, matplotlib, seaborn)** | Data cleaning, merging 9 tables into one master dataframe, 6 production-quality charts, statistical correlation analysis |
+| **Python (pandas, matplotlib, seaborn)** | Data cleaning, merging 9 tables into one master dataframe, 6 production-quality charts, statistical correlation analysis (Pearson r = -0.584) |
+| **Tableau Public** | Interactive 4-chart dashboard — revenue trend, category performance, delivery by state, payment methods |
 | **Excel (openpyxl)** | Formatted 5-sheet stakeholder summary with auto-width columns, header styling, and frozen panes |
 | **Jupyter Notebook** | End-to-end reproducible analysis with markdown commentary explaining every business decision |
+
+---
+
+## 📊 Charts Generated
+
+| Chart | Key Insight |
+|-------|------------|
+| Monthly Revenue Trend | 667% growth, clear Black Friday spike Nov 2017 |
+| Top 10 Categories | Health & Beauty #1 at R$1.23M |
+| State Revenue Map | SP + RJ + MG = 62.6% of all revenue |
+| Delivery Performance | AL worst at 24.2% late, SP best at 5.9% |
+| Review Correlation | Faster delivery = higher rating (r = -0.584) |
+| Payment Methods | Credit card 75.3%, boleto users spend more |
 
 ---
 
@@ -123,7 +123,7 @@ olist-ecommerce-analysis/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/olist-ecommerce-analysis.git
+git clone https://github.com/PriyanshuMoudgil12/olist-ecommerce-analysis.git
 cd olist-ecommerce-analysis
 
 # 2. Download the dataset from Kaggle
@@ -160,4 +160,4 @@ jupyter notebook notebooks/olist_eda_notebook.ipynb
 
 Built as part of my Business Analysis portfolio during BBA (5th Semester) to demonstrate end-to-end BA skills — from raw data extraction to executive-level business recommendations.
 
-**Connect:** [LinkedIn](https://linkedin.com/in/YOUR_PROFILE) | [GitHub](https://github.com/YOUR_USERNAME)
+**Connect:** [LinkedIn](https://linkedin.com/in/priyanshu-moudgil) | [GitHub](https://github.com/PriyanshuMoudgil12)

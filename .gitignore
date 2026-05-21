@@ -1,5 +1,23 @@
+# Raw data & generated DB
 data/
 olist.db
 *.db
+
+# OS / editor noise
 .DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Python
 __pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+Untitled*.ipynb
+
+# Anaconda
+anaconda_projects/

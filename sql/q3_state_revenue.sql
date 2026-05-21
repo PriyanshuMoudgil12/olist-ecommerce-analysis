@@ -9,7 +9,7 @@
 -- How to use:
 --   Run in DB Browser for SQLite, then Export → CSV
 --   Save result as: outputs/q3_state_revenue.csv
---   This CSV feeds the Power BI filled map visual (choropleth).
+--   This CSV feeds the Tableau filled map visual (choropleth).
 -- ============================================================
 
 SELECT

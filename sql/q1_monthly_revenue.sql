@@ -8,7 +8,7 @@
 -- How to use:
 --   Run in DB Browser for SQLite, then Export → CSV
 --   Save result as: outputs/q1_monthly_revenue.csv
---   This CSV feeds the Power BI "Revenue Trend" line chart.
+--   This CSV feeds the Tableau "Revenue Trend" line chart.
 -- ============================================================
 
 SELECT

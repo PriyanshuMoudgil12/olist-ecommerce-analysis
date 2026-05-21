@@ -9,7 +9,7 @@
 -- How to use:
 --   Run in DB Browser for SQLite, then Export → CSV
 --   Save result as: outputs/q5_reviews_by_category.csv
---   Use in Power BI scatter chart (revenue vs review score).
+--   Use in Tableau scatter chart (revenue vs review score).
 -- ============================================================
 
 SELECT
@@ -22,7 +22,7 @@ SELECT
     ROUND(AVG(r.review_score), 2)                       AS avg_review_score,
     COUNT(DISTINCT r.review_id)                         AS total_reviews,
 
-    -- Score distribution (useful for a stacked bar in Power BI)
+    -- Score distribution (useful for a stacked bar in Tableau)
     SUM(CASE WHEN r.review_score = 5 THEN 1 ELSE 0 END) AS score_5,
     SUM(CASE WHEN r.review_score = 4 THEN 1 ELSE 0 END) AS score_4,
     SUM(CASE WHEN r.review_score = 3 THEN 1 ELSE 0 END) AS score_3,

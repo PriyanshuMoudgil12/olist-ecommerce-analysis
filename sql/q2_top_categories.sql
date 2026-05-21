@@ -8,7 +8,7 @@
 -- How to use:
 --   Run in DB Browser for SQLite, then Export → CSV
 --   Save result as: outputs/q2_top_categories.csv
---   This CSV feeds the Power BI "Category Performance" bar chart.
+--   This CSV feeds the Tableau "Category Performance" bar chart.
 -- ============================================================
 
 SELECT

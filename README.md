@@ -30,11 +30,11 @@ Olist connects thousands of small Brazilian merchants to major marketplaces. Wit
 
 | # | Finding | Insight |
 |---|---------|---------|
-| 1 | **Revenue grew 667% in 20 months** | From R$128K in Jan 2017 → R$985K in Aug 2018. November 2017 peaked at R$1.16M — Black Friday effect |
-| 2 | **São Paulo = 37.4% of all revenue** | SP + RJ + MG together control 62.6% of national revenue — extreme geographic concentration |
+| 1 | **Revenue grew 673% in 20 months** | From R$127K in Jan 2017 → R$985K in Aug 2018. November 2017 peaked at R$1.15M — Black Friday effect |
+| 2 | **São Paulo = 37.4% of all revenue** | SP + RJ + MG together control 62.5% of national revenue — extreme geographic concentration |
 | 3 | **Health & Beauty is the #1 category** | R$1.23M revenue with a 4.19 star avg rating — highest revenue AND high satisfaction |
-| 4 | **Late delivery kills review scores** | Pearson r = -0.584. States with 20%+ late delivery average 0.4 stars lower than on-time states |
-| 5 | **92.1% of orders delivered on time** | But Alagoas (AL) hits 24.2% late rate — 4× worse than São Paulo's 5.9% |
+| 4 | **Late delivery kills review scores** | State-level Pearson r = -0.86. States with 20%+ late delivery average 0.4 stars lower than on-time states |
+| 5 | **91.9% of orders delivered on time** | But Alagoas (AL) hits 23.9% late rate — 4× worse than São Paulo's 5.9% |
 | 6 | **Credit card dominates at 75.3%** | But credit card buyers spend R$162 avg vs boleto R$144 — higher ticket, not just more popular |
 | 7 | **Office Furniture worst rated category** | 3.52 stars with 25.4% negative reviews — 1 in 4 customers unhappy |
 | 8 | **Orders delivered in 1-5 days score 4.35 stars** | Orders taking 21-30 days drop to 3.52 — a 0.83 star gap purely from speed |
@@ -44,7 +44,7 @@ Olist connects thousands of small Brazilian merchants to major marketplaces. Wit
 ## 💡 Business Recommendations
 
 **1. Fix logistics in Northeast Brazil — immediately**
-Alagoas (24.2% late), Maranhão (20.4%), and Sergipe (16.4%) are dragging down national customer satisfaction. These states also pay 18-21% of order value in freight — nearly double São Paulo's 12.2%. Partner with regional logistics providers and set a hard internal KPI of <10% late delivery per state.
+Alagoas (23.9% late), Maranhão (19.6%), and Sergipe (15.2%) are dragging down national customer satisfaction. These states also pay 18-21% of order value in freight — nearly double São Paulo's 12.2%. Partner with regional logistics providers and set a hard internal KPI of <10% late delivery per state.
 
 **2. Invest aggressively in Health & Beauty**
 It's the only top-5 revenue category that also scores above-average in customer satisfaction (4.19 stars). This combination — high revenue + happy customers — makes it the safest category to expand. Recruit more sellers, offer promotional placements, and reduce commission rates for new Health & Beauty merchants.
@@ -65,7 +65,7 @@ Credit card gets all the attention at 75.3% of orders — but boleto users avera
 | Tool | What I Used It For |
 |------|--------------------|
 | **SQL (SQLite)** | 6 business queries across 9 joined tables — revenue trends, geographic breakdown, delivery performance, category analysis, review correlation, payment behaviour |
-| **Python (pandas, matplotlib, seaborn)** | Data cleaning, merging 9 tables into one master dataframe, 6 production-quality charts, statistical correlation analysis (Pearson r = -0.584) |
+| **Python (pandas, matplotlib, seaborn)** | Data cleaning, merging 9 tables into one master dataframe, 6 production-quality charts, statistical correlation analysis (state-level Pearson r = -0.86 between late-delivery rate and review score) |
 | **Tableau Public** | Interactive 4-chart dashboard — revenue trend, category performance, delivery by state, payment methods |
 | **Excel (openpyxl)** | Formatted 5-sheet stakeholder summary with auto-width columns, header styling, and frozen panes |
 | **Jupyter Notebook** | End-to-end reproducible analysis with markdown commentary explaining every business decision |
@@ -80,7 +80,7 @@ Credit card gets all the attention at 75.3% of orders — but boleto users avera
 | Top 10 Categories | Health & Beauty #1 at R$1.23M |
 | State Revenue Map | SP + RJ + MG = 62.6% of all revenue |
 | Delivery Performance | AL worst at 24.2% late, SP best at 5.9% |
-| Review Correlation | Faster delivery = higher rating (r = -0.584) |
+| Review Correlation | Faster delivery = higher rating (state-level r = -0.86) |
 | Payment Methods | Credit card 75.3%, boleto users spend more |
 
 ---

@@ -1,163 +1,125 @@
 # 🛒 Olist E-Commerce Sales Analysis
 
-> **End-to-end Business Analysis** | SQL · Python · Excel · Tableau
+> 99,441 real orders. 9 relational tables. One simple question: why are some Brazilian states giving Olist 4.4-star reviews and others giving 3.5?
 
-Analysed **99,441 real orders** across Brazil's largest e-commerce marketplace to uncover what drives revenue, where logistics breaks down, and why customers leave bad reviews — then translated every finding into an actionable business recommendation.
+🔗 **[Live Tableau dashboard →](https://public.tableau.com/app/profile/priyanshu.moudgil/viz/OlistE-CommerceSalesAnalysis_17793927587150/Dashboard1)**
 
----
-
-## 📊 Live Dashboard
-
-🔗 **[View Interactive Tableau Dashboard](https://public.tableau.com/app/profile/priyanshu.moudgil/viz/OlistE-CommerceSalesAnalysis_17793927587150/Dashboard1)**
-
-![Dashboard Preview](outputs/monthly_revenue_trend.png)
+![Monthly revenue trend](outputs/monthly_revenue_trend.png)
 
 ---
 
-## 🎯 Business Problem
+## The problem
 
-Olist connects thousands of small Brazilian merchants to major marketplaces. With 8× revenue growth in under 2 years comes serious operational complexity. This analysis answers 5 questions a BA would face on day one:
+Olist is the largest e-commerce marketplace in Brazil — it connects small merchants to big platforms like Mercado Livre and Submarino. Between 2017 and 2018 the platform grew revenue **8×** in under two years. That kind of growth comes with serious operational pain: deliveries get slower, complaints rise, certain states become unprofitable to serve, and nobody on the inside has time to look at the patterns.
 
-1. Is the business growing — and when are the seasonal peaks?
-2. Which product categories drive the most revenue?
-3. Which states are high-value markets vs untapped opportunities?
-4. How reliable is delivery — and does it affect customer satisfaction?
-5. Which payment methods do customers prefer, and does it vary by order size?
+I took the public Olist dataset (Kaggle, ~100K orders, 9 normalised tables) and approached it the way a Business Analyst at any growing marketplace would on day one — pulling the data into SQL, asking the five questions a stakeholder would actually ask, and turning each answer into a recommendation.
 
 ---
 
-## 🔍 Key Findings
+## What it does
 
-| # | Finding | Insight |
-|---|---------|---------|
-| 1 | **Revenue grew 673% in 20 months** | From R$127K in Jan 2017 → R$985K in Aug 2018. November 2017 peaked at R$1.15M — Black Friday effect |
-| 2 | **São Paulo = 37.4% of all revenue** | SP + RJ + MG together control 62.5% of national revenue — extreme geographic concentration |
-| 3 | **Health & Beauty is the #1 category** | R$1.23M revenue with a 4.19 star avg rating — highest revenue AND high satisfaction |
-| 4 | **Late delivery kills review scores** | State-level Pearson r = -0.86. States with 20%+ late delivery average 0.4 stars lower than on-time states |
-| 5 | **91.9% of orders delivered on time** | But Alagoas (AL) hits 23.9% late rate — 4× worse than São Paulo's 5.9% |
-| 6 | **Credit card dominates at 75.3%** | But credit card buyers spend R$162 avg vs boleto R$144 — higher ticket, not just more popular |
-| 7 | **Office Furniture worst rated category** | 3.52 stars with 25.4% negative reviews — 1 in 4 customers unhappy |
-| 8 | **Orders delivered in 1-5 days score 4.35 stars** | Orders taking 21-30 days drop to 3.52 — a 0.83 star gap purely from speed |
+- Loads **9 relational CSVs** (orders, customers, payments, reviews, items, sellers, geolocation, products, categories) into a SQLite warehouse
+- Runs **6 SQL queries** covering the entire revenue funnel — acquisition → fulfillment → satisfaction
+- Computes a **state-level Pearson correlation** between late-delivery rate and review score
+- Generates **6 publication-quality charts** in Python (matplotlib + seaborn)
+- Packages findings into a **5-sheet Excel workbook** for stakeholder consumption
+- Ships an interactive **4-chart Tableau Public dashboard**
+- Translates 8 statistical findings into **5 prioritized business recommendations**
 
 ---
 
-## 💡 Business Recommendations
+## Tech stack
 
-**1. Fix logistics in Northeast Brazil — immediately**
-Alagoas (23.9% late), Maranhão (19.6%), and Sergipe (15.2%) are dragging down national customer satisfaction. These states also pay 18-21% of order value in freight — nearly double São Paulo's 12.2%. Partner with regional logistics providers and set a hard internal KPI of <10% late delivery per state.
-
-**2. Invest aggressively in Health & Beauty**
-It's the only top-5 revenue category that also scores above-average in customer satisfaction (4.19 stars). This combination — high revenue + happy customers — makes it the safest category to expand. Recruit more sellers, offer promotional placements, and reduce commission rates for new Health & Beauty merchants.
-
-**3. Fix or exit Office Furniture**
-R$268K revenue sounds good until you see 25.4% of customers are unhappy. Either audit product quality and seller standards in this category, or reduce its prominence in search results until satisfaction improves. Unhappy customers don't come back.
-
-**4. Prepare for Q4 twelve weeks in advance**
-November revenue hit R$1.16M — 112% MoM growth in one month. That kind of spike breaks logistics networks. Pre-position inventory in October, increase seller capacity alerts in September, and set delivery expectation buffers for November to protect the review score spike that follows Black Friday.
-
-**5. Target boleto users for high-ticket categories**
-Credit card gets all the attention at 75.3% of orders — but boleto users average R$144 per order and show up heavily in computers, furniture, and office equipment. These are deliberate, high-value purchases. Build targeted retention campaigns and loyalty offers specifically for boleto customers.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/matplotlib-11557C?style=for-the-badge&logo=python&logoColor=white)
+![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=Tableau&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 
 ---
 
-## 🛠️ Tools & Skills Demonstrated
-
-| Tool | What I Used It For |
-|------|--------------------|
-| **SQL (SQLite)** | 6 business queries across 9 joined tables — revenue trends, geographic breakdown, delivery performance, category analysis, review correlation, payment behaviour |
-| **Python (pandas, matplotlib, seaborn)** | Data cleaning, merging 9 tables into one master dataframe, 6 production-quality charts, statistical correlation analysis (state-level Pearson r = -0.86 between late-delivery rate and review score) |
-| **Tableau Public** | Interactive 4-chart dashboard — revenue trend, category performance, delivery by state, payment methods |
-| **Excel (openpyxl)** | Formatted 5-sheet stakeholder summary with auto-width columns, header styling, and frozen panes |
-| **Jupyter Notebook** | End-to-end reproducible analysis with markdown commentary explaining every business decision |
-
----
-
-## 📊 Charts Generated
-
-| Chart | Key Insight |
-|-------|------------|
-| Monthly Revenue Trend | 667% growth, clear Black Friday spike Nov 2017 |
-| Top 10 Categories | Health & Beauty #1 at R$1.23M |
-| State Revenue Map | SP + RJ + MG = 62.6% of all revenue |
-| Delivery Performance | AL worst at 24.2% late, SP best at 5.9% |
-| Review Correlation | Faster delivery = higher rating (state-level r = -0.86) |
-| Payment Methods | Credit card 75.3%, boleto users spend more |
-
----
-
-## 📁 Project Structure
-
-```
-olist-ecommerce-analysis/
-│
-├── data/                          # Raw CSVs (not tracked — see .gitignore)
-│
-├── sql/
-│   ├── q1_monthly_revenue.sql     # Revenue trend by month
-│   ├── q2_top_categories.sql      # Top 20 categories by revenue + market share
-│   ├── q3_state_revenue.sql       # All 27 states — revenue, freight cost, concentration
-│   ├── q4_delivery_performance.sql# On-time vs late — national + by state
-│   ├── q5_reviews_by_category.sql # Review score distribution per category
-│   └── q6_payment_methods.sql     # Payment method breakdown + by category
-│
-├── notebooks/
-│   └── olist_eda_notebook.ipynb   # Full Python EDA — 11 sections, 6 charts
-│
-├── outputs/
-│   ├── monthly_revenue_trend.png
-│   ├── top_categories.png
-│   ├── state_revenue.png
-│   ├── delivery_analysis.png
-│   ├── review_correlation.png
-│   ├── payment_methods.png
-│   └── olist_analysis_summary.xlsx
-│
-├── setup_database.py              # Loads all 9 CSVs into SQLite with verification
-├── .gitignore                     # Excludes raw data and database file
-└── README.md
-```
-
----
-
-## 🚀 How to Reproduce This Analysis
+## How to run it locally
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/PriyanshuMoudgil12/olist-ecommerce-analysis.git
 cd olist-ecommerce-analysis
-
-# 2. Download the dataset from Kaggle
-# kaggle.com/datasets/olistbr/brazilian-ecommerce
-# Place all 9 CSV files into the data/ folder
-
-# 3. Install dependencies
-pip install pandas matplotlib seaborn openpyxl
-
-# 4. Load data into SQLite database
-python setup_database.py
-
-# 5. Run the full analysis
-jupyter notebook notebooks/olist_eda_notebook.ipynb
-# Kernel → Restart & Run All
+pip install pandas numpy scipy matplotlib seaborn openpyxl jupyter
 ```
 
+Then:
+
+1. **Download the data** from Kaggle — [Olist Brazilian E-Commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). Place all 9 CSVs in `data/`.
+
+2. **Build the SQLite warehouse:**
+   ```bash
+   python3 setup_database.py
+   ```
+   This loads all 9 CSVs into `olist.db` and sets up the joins.
+
+3. **Open the analysis notebook:**
+   ```bash
+   jupyter notebook notebooks/olist_eda_notebook.ipynb
+   ```
+   Walks through every query with markdown commentary explaining each business decision.
+
+4. **Run any of the 6 SQL queries directly:**
+   ```bash
+   sqlite3 olist.db < sql/q1_monthly_revenue.sql
+   ```
+
+5. **See the interactive dashboard online:** [Tableau Public link](https://public.tableau.com/app/profile/priyanshu.moudgil/viz/OlistE-CommerceSalesAnalysis_17793927587150/Dashboard1)
+
 ---
 
-## 📦 Dataset
+## Key findings
 
-| Detail | Info |
-|--------|------|
-| Source | [Kaggle — Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) |
-| Tables | 9 relational CSV files |
-| Orders | 99,441 delivered orders (2016–2018) |
-| Products | 32,951 unique products across 73 categories |
-| Geography | All 27 Brazilian states |
-| Time period | January 2017 — August 2018 (full months only) |
+1. **Revenue grew 673% in 20 months.** From R$127K (Jan 2017) to R$985K (Aug 2018). November 2017 peaked at **R$1.15M** — pure Black Friday effect.
+
+2. **The market is dangerously concentrated.** São Paulo alone is **37.4%** of national revenue. SP + RJ + MG together = **62.5%** of every real Olist earned. The platform's growth is structurally tied to the wealth of three states.
+
+3. **State-level Pearson r = −0.86 between late-delivery rate and review score.** The states with the worst delivery (Alagoas at 23.9% late) score **0.4 stars lower** on average than the best (São Paulo at 5.9% late). This is the single biggest operational lever in the data.
+
+4. **Speed beats price for satisfaction.** Orders delivered in 1–5 days average **4.35 stars**; orders taking 21–30 days drop to **3.52**. A 0.83-star gap from delivery speed alone.
+
+5. **Health & Beauty is the perfect category.** Highest revenue (R$1.23M) AND highest customer satisfaction (4.19 stars). It's the only top-5 category that doesn't have a trade-off between volume and quality.
+
+6. **Office Furniture is the worst.** R$268K revenue but 3.52 stars and **25.4% negative reviews** — 1 in 4 customers leaving unhappy.
+
+7. **Credit card is dominant but boleto is high-value.** 75.3% of orders use credit card at R$162 average; 18.6% use boleto at R$144 average — and boleto buyers cluster around high-ticket categories like computers and furniture.
+
+![Review correlation](outputs/review_correlation.png)
+
+The 5 recommendations in the executive summary cover: (1) fix Northeast logistics immediately, (2) invest in Health & Beauty, (3) fix or exit Office Furniture, (4) prepare for Q4 twelve weeks in advance, (5) target boleto users for high-ticket categories.
 
 ---
 
-## 🎓 About This Project
+## What I learned
 
-Built as part of my Business Analysis portfolio during BBA (5th Semester) to demonstrate end-to-end BA skills — from raw data extraction to executive-level business recommendations.
+- **The interesting question is usually "why?", not "what?".** Aggregate statistics like "revenue grew 673%" are easy to compute. The insight came from segmenting — by state, by category, by delivery speed — and finding the correlations that explained the headline number. A flat "revenue grew" chart is forgettable. A 4.35 → 3.52 star drop by delivery speed bucket is memorable.
 
-**Connect:** [LinkedIn](https://linkedin.com/in/priyanshu-moudgil) | [GitHub](https://github.com/PriyanshuMoudgil12)
+- **SQL window functions are worth the learning curve.** Most of my Q1 monthly-revenue query is one CTE plus a window function. Without windows, I'd have written four nested subqueries that nobody can read or maintain.
+
+- **State-level analysis is more honest than national averages.** "91.9% of orders are on-time" sounds fine until you see Alagoas at 23.9% late. National averages hide the operational problems that actually matter to specific customers. The stakeholder doesn't care about the country mean — they care about which states are pulling it down.
+
+- **A correlation of −0.86 changes the conversation.** I went into this expecting a vague "delivery probably affects reviews" finding. The number is so strong that it elevated "fix Northeast logistics" from a nice-to-have to the headline recommendation. A single hard number has outsized persuasive power in a memo.
+
+---
+
+## What I'd add next
+
+- **Customer cohort analysis.** Right now I treat each order independently. The next step is to group customers by their first-purchase month and track 30/60/90-day repeat rates — that tells Olist which acquisition cohorts produce loyal customers, not just one-time buyers.
+
+- **A simple churn / dormancy model.** Logistic regression of "will a customer come back within 90 days" against their first-order experience (delivery time, category, payment method). Quantify what predicts retention instead of just describing it.
+
+- **A simulated A/B test write-up.** Pick one of my recommendations (say, prioritizing logistics investment in the Northeast) and write the experimental design — hypothesis, sample size calculation, primary metric, success criteria, expected lift. Turns the analysis into a testable plan, not just a report.
+
+---
+
+**Priyanshu Moudgil** · BBA, 5th Semester · open to Summer / Winter 2026 analyst internships
+
+- GitHub: [@PriyanshuMoudgil12](https://github.com/PriyanshuMoudgil12)
+- LinkedIn: [linkedin.com/in/priyanshu-moudgil](https://linkedin.com/in/priyanshu-moudgil)

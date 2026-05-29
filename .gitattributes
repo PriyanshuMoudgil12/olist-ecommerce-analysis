@@ -1,0 +1,9 @@
+# tell github not to count notebook outputs as code
+notebooks/*.ipynb linguist-documentation
+
+# generated charts / db files
+outputs/* linguist-generated
+*.db linguist-generated
+
+# keep SQL visible in language stats
+*.sql linguist-detectable
